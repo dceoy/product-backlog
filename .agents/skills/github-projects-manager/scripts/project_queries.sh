@@ -18,8 +18,11 @@ USAGE
 
 cmd="${1:-}"
 
+# shellcheck disable=SC2016 # GraphQL placeholders must remain literal.
 readonly project_query='query($login:String!,$number:Int!){ user(login:$login){ projectV2(number:$number){ id title url number } } organization(login:$login){ projectV2(number:$number){ id title url number } } }'
+# shellcheck disable=SC2016 # GraphQL placeholders must remain literal.
 readonly issue_query='query($owner:String!,$repo:String!,$number:Int!){ repository(owner:$owner,name:$repo){ issue(number:$number){ id url title } } }'
+# shellcheck disable=SC2016 # GraphQL placeholders must remain literal.
 readonly pr_query='query($owner:String!,$repo:String!,$number:Int!){ repository(owner:$owner,name:$repo){ pullRequest(number:$number){ id url title } } }'
 
 case "$cmd" in
