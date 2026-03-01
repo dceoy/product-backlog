@@ -18,7 +18,7 @@ USAGE
 
 cmd="${1:-}"
 
-readonly project_query='query($login:String!,$number:Int!){ user(login:$login){ projectV2(number:$number){ id title url number } } }'
+readonly project_query='query($login:String!,$number:Int!){ user(login:$login){ projectV2(number:$number){ id title url number } } organization(login:$login){ projectV2(number:$number){ id title url number } } }'
 readonly issue_query='query($owner:String!,$repo:String!,$number:Int!){ repository(owner:$owner,name:$repo){ issue(number:$number){ id url title } } }'
 readonly pr_query='query($owner:String!,$repo:String!,$number:Int!){ repository(owner:$owner,name:$repo){ pullRequest(number:$number){ id url title } } }'
 

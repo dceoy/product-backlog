@@ -6,38 +6,47 @@
 query ($login: String!, $number: Int!) {
   user(login: $login) {
     projectV2(number: $number) {
-      id
-      title
-      url
-      number
-      fields(first: 50) {
-        nodes {
-          ... on ProjectV2Field {
+      ...ProjectV2Details
+    }
+  }
+  organization(login: $login) {
+    projectV2(number: $number) {
+      ...ProjectV2Details
+    }
+  }
+}
+
+fragment ProjectV2Details on ProjectV2 {
+  id
+  title
+  url
+  number
+  fields(first: 50) {
+    nodes {
+      ... on ProjectV2Field {
+        id
+        name
+        dataType
+      }
+      ... on ProjectV2SingleSelectField {
+        id
+        name
+        dataType
+        options {
+          id
+          name
+        }
+      }
+      ... on ProjectV2IterationField {
+        id
+        name
+        dataType
+        configuration {
+          iterations {
             id
-            name
-            dataType
-          }
-          ... on ProjectV2SingleSelectField {
-            id
-            name
-            dataType
-            options {
-              id
-              name
-            }
-          }
-          ... on ProjectV2IterationField {
-            id
-            name
-            dataType
-            configuration {
-              iterations {
-                id
-                title
-                startDate
-                duration
-              }
-            }
+            title
+            startDate
+            duration
           }
         }
       }
