@@ -12,7 +12,7 @@ on:
       - synchronize
       - reopened
 jobs:
-  python-lint-and-scan:
+  shell-lint:
     if: >
       github.event_name == 'push'
       || github.event_name == 'pull_request'
