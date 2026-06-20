@@ -29,6 +29,8 @@ jobs:
       - shell-lint
     permissions:
       actions: read
+      checks: read
+      statuses: read
       contents: write
       pull-requests: write
     uses: dceoy/gh-actions-for-devops/.github/workflows/dependabot-auto-merge.yml@main  # zizmor: ignore[unpinned-uses]
