@@ -17,7 +17,7 @@ Run the local QA script `scripts/qa.sh` in this skill.
   - macOS (Homebrew): `brew install shellcheck actionlint yamllint checkov zizmor`
   - macOS `pnpm`: `brew install pnpm`
   - Linux (Debian/Ubuntu) base packages: `sudo apt-get update && sudo apt-get install -y shellcheck yamllint nodejs npm pipx golang rustc cargo`
-  - Linux `pnpm`: `npm install --global pnpm` (requires a supported Node.js version)
+  - Linux `pnpm`: `npm install --global pnpm@10` with distro Node.js 18/20; use current pnpm with Node.js 22.13+
   - Linux `checkov`: `pipx install checkov`
   - Linux `actionlint`: `go install github.com/rhysd/actionlint/cmd/actionlint@latest`
   - Linux `zizmor`: `cargo install zizmor`
