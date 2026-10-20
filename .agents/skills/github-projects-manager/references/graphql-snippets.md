@@ -59,9 +59,7 @@ fragment ProjectV2Details on ProjectV2 {
 
 ```graphql
 mutation ($projectId: ID!, $contentId: ID!) {
-  addProjectV2ItemById(
-    input: { projectId: $projectId, contentId: $contentId }
-  ) {
+  addProjectV2ItemById(input: { projectId: $projectId, contentId: $contentId }) {
     item {
       id
     }
@@ -95,12 +93,7 @@ mutation ($projectId: ID!, $itemId: ID!, $fieldId: ID!, $optionId: String!) {
 ```graphql
 mutation ($projectId: ID!, $itemId: ID!, $fieldId: ID!, $date: Date!) {
   updateProjectV2ItemFieldValue(
-    input: {
-      projectId: $projectId
-      itemId: $itemId
-      fieldId: $fieldId
-      value: { date: $date }
-    }
+    input: { projectId: $projectId, itemId: $itemId, fieldId: $fieldId, value: { date: $date } }
   ) {
     projectV2Item {
       id
